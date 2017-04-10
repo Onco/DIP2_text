@@ -1,0 +1,74 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Eyesection.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{411.67183905bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.67004133)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Eyesection.pdf}}%
+    \put(0.02020929,0.10399852){\makebox(0,0)[lt]{\begin{minipage}{0.14840468\unitlength}\raggedright \end{minipage}}}%
+    \put(0.70312447,0.03801128){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Choroid}}}%
+    \put(0.05110566,0.1062942){\makebox(0,0)[lt]{\begin{minipage}{0.08773452\unitlength}\raggedright \end{minipage}}}%
+    \put(0.18815687,0.59771047){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ciliárny\\    sval}}}%
+    \put(0.10321888,0.51277249){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zadná očná\\    komora}}}%
+    \put(0.07537357,0.41685514){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rohovka}}}%
+    \put(0.07148698,0.36997893){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zornica}}}%
+    \put(0.0389922,0.25330906){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Predná očná\\     komora}}}%
+    \put(0.12120854,0.16408245){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Dúhovka}}}%
+    \put(0.46248625,0.40487575){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Sklovec}}}%
+    \put(0.39056887,0.51453541){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Riasnaté\\ teliesko}}}%
+    \put(0.63032099,0.43520563){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{  Osa\\ videnia}}}%
+    \put(0.52622842,0.25963894){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Optická\\    osa}}}%
+    \put(0.39789875,0.25530908){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Šošovka}}}%
+    \put(0.38031115,0.19505144){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Šošovkový\\      vak}}}%
+    \put(0.64334157,0.27790694){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ Slepá\\ škvrna}}}%
+    \put(0.55615617,0.18271126){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Sietnica\\ \textsl{ (retina)}}}}%
+    \put(0.79562997,0.43047366){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Žltá škvrna\\ \textsl{    (fovea)}}}}%
+    \put(0.89579478,0.25398943){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Optický\\    nerv}}}%
+    \put(0.78861968,0.11400001){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Skléra}}}%
+  \end{picture}%
+\endgroup%
