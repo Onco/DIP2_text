@@ -1,0 +1,6 @@
+# ignore temporary files
+DIP_xvavro00.*
+!DIP_xvavro00.tex
+projekt-01-kapitoly-chapters_old.tex
+# too huge bibliographies
+/bibs/*.pdf

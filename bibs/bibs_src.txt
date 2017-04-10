@@ -1,0 +1,9 @@
+http://funcvis.org/blog/?p=51
+http://www4.comp.polyu.edu.hk/~cslzhang/paper/CBM-MF.pdf
+http://www.sersc.org/journals/IJSIP/vol8_no10/34.pdf
+http://homepages.inf.ed.ac.uk/rbf/HIPR2/log.htm
+http://europepmc.org/abstract/med/8888876
+http://www.cse.psu.edu/~rtc12/CSE486/lecture11_6pp.pdf
+https://pdfs.semanticscholar.org/ac97/48ea3945eb970cc32a37db7cfdfd0f22e74c.pdf
+http://docs.opencv.org/trunk/d3/db7/tutorial_hdr_imaging.html
+http://docs.opencv.org/3.0-beta/modules/photo/doc/hdr_imaging.html
