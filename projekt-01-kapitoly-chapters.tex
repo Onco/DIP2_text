@@ -10,9 +10,17 @@ Výrobcovia zariadení sa snažia ponúknuť svojim zákazníkom čoraz sofistik
 
 V súčasnosti je štandardom v rôznych zariadeniach snímač odtlačku prstu. Táto technológia, aj napriek viacerým zlepšeniam a detekcii živosti prstu, je stále použiteľná len pre jednoduché zabezpečenie. Prístup k odtlačkom prstov je možný aj bez vedomia vlastníka, kedže odtlačky prstov bežne zanechávajú stopu na rôznych povrchoch. Obdobným spôsobom sú vystavené verejnosti aj iné časti ľudského tela, ktoré sú používané v biometrii (napr. naše ruky, tvár, dúhovka, atp.), čo ruku v ruke s najmodernejšími snímacími technológiami smeruje k zníženej schopnosti týchto prvkov ochrániť naše dáta.
 
-Jediným prvkom využívaným (zatiaľ len okrajovo) v biometrii, ktorý je v bežnom živote dostatočne chránený, je sietnica. Bez priameho prístupu k oku vlastníka je takmer nezaznamenateľná a teda ideálne chránená pre potreby biometrie. Bohužial, táto jej vlastnosť má aj svoju daň v podobe zníženého komfortu užívateľa pri jej snímaní a tiež jej sťaženého snímania, ktoré môže byť spôsobené rôznymi chorobami snímacieho aparátu.
+Jediným prvkom využívaným (zatiaľ len okrajovo) v biometrii, ktorý je v bežnom živote dostatočne chránený, je sietnica. Bez priameho prístupu k oku vlastníka je takmer nezaznamenateľná a teda ideálne chránená pre potreby biometrie. Bohužial, táto jej vlastnosť má aj svoju daň v podobe zníženého komfortu užívateľa pri jej snímaní.
+Samotné snímanie sietnice produkuje konzistentné výsledky vďaka jej polohe v uzatvorenom priestore očnej bulvy, kde sú podmienky snímania konštantné. K zmene podmienok snímania môže dôjsť len zmenou prostredia v očnej bulve alebo zmenou sietnice samotnej. Toto býva typicky spôsobené rôznymi chorobami orgánu oka.
 
-Táto práca sa snaží o korekciu druhého z uvedených problémov. V kapitole \ref{ch:kap1} predkladá pojmy súvisiace so zrakovým orgánom, predovšetkým sietnicou. V kapitole \ref{ch:kap2} rozoberá jednotlivé patologické nálezy zrakového orgánu so zameraním na tie, ktoré majú najväčší dopad na snímanie sietnice. V kapitole \ref{ch:kap3} je pre vybrané patologické nálezy rozpracovaný teoretický podklad a spôsob akým by bolo možné dané nálezy v snímkach sietnice korigovať. Kapitola \ref{ch:kap3} ďalej prezentuje algoritmus využitý na korekciu daných nálezov vo snímkoch s ohľadom na použitie daných snímok pre účely biometrie. Kapitola \ref{ch:kap3} následne prezentuje výsledky testovania algoritmu na rôznych verejne dostupných databázach. Záverečná kapitola sumarizuje výsledky a predkladá ďalšie možné kroky, ktoré by mohli zlepšiť výsledky algoritmu.
+Táto práca sa snaží o korekciu druhého z uvedených problémov. V kapitole \ref{ch:kap0} je podaný teoretický základ biometrických metód, ako aj spôsob vyhodnocovania ich spoľahlivosti. Kapitola \ref{ch:kap1} predkladá pojmy súvisiace so zrakovým orgánom, predovšetkým sietnicou. V kapitole \ref{ch:kap2} su rozobrané jednotlivé patologické nálezy zrakového orgánu so zameraním na tie, ktoré majú najväčší dopad na snímanie sietnice. Kapitola \ref{ch:kap3} popisuje rôzne zdroje dát snímkov sietnice použité k štúdiu patologických úkazov, ich parametre a použitie pre potreby tejto práce. V kapitole \ref{ch:kap4} je pre vybrané patologické nálezy rozpracovaný teoretický podklad a spôsob akým by bolo možné dané nálezy v snímkach sietnice korigovať. Kapitola \ref{ch:kap4} ďalej prezentuje algoritmus využitý na korekciu daných nálezov vo snímkoch s ohľadom na použitie daných snímok pre účely biometrie. Kapitola \ref{ch:kap5} následne prezentuje výsledky testovania algoritmu na vybraných zdrojoch dát. Záverečná kapitola sumarizuje výsledky a predkladá ďalšie možné kroky, ktoré by mohli zlepšiť výsledky algoritmu.
+
+\chapter{Biometria obecne}\label{ch:kap0}
+\emph{Biometria} je metóda automatického rozpoznávania ľudí na základe anatomických (odtlačky prstov, tvár, dúhovka, sietnica,\dots) alebo behaviorálnych (hlas/reč, gestikulácia, chôdza, podpis,\dots) vlastností jedinečných pre každého človeka.
+
+Kombinácia týchto vlastností predstavuje \emph{identitu}, ktorá jednoznačne určuje danú osobu. Osoba môže byť identická len sama so sebou\cite{bio}.
+
+Vstupom pre biometrický systém je súhrn identít osôb, ktoré chceme rozlíšiť a identifikovať pomocou biometrického systému.
 
 \chapter{Orgán zraku}\label{ch:kap1}
 Orgán zraku je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Strategické umiestnenie tohoto orgánu na hlave (blízko mozgu) ho robí ľahko dostupným pre použitie v biometrii.
@@ -58,16 +66,23 @@ Každý z týchto prvkov má vlastnosti, ktoré sa podieľajú na správnom pren
 - reakcia svetlocitlivych buniek na svetlo, ich rozlozenie po sietnici
 - 
 
-\chapter{Patologické nálezy na sietnici}\label{ch:kap2}
+\section{Biometria sietnice}\label{sec:bioret}
+
+\chapter{Patológia sietnice}\label{ch:kap2}
 TBD\cite{prim}
 \section{TBD}
 TBD\cite{sec}
 TBD\cite{bio}
 
-\chapter{Korekcia vybraných patologických nálezov}
+\chapter{Zdroje vstupných dát}\label{ch:kap3}
 
+\chapter{Detekcia a korekcie nálezov}\label{ch:kap4}
 
-\chapter{Záver}
+\chapter{Implementácia algoritmu}
+
+\chapter{Systém testovania a výsledky}\label{ch:kap5}
+
+\chapter{Záver}\label{ch:kap6}
 Závěrečná kapitola obsahuje zhodnocení dosažených výsledků se zvlášť vyznačeným vlastním přínosem studenta. Povinně se zde objeví i zhodnocení z pohledu dalšího vývoje projektu, student uvede náměty vycházející ze zkušeností s řešeným projektem a uvede rovněž návaznosti na právě dokončené projekty.
 
 %=========================================================================

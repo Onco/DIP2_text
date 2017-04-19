@@ -7,3 +7,4 @@ http://www.cse.psu.edu/~rtc12/CSE486/lecture11_6pp.pdf
 https://pdfs.semanticscholar.org/ac97/48ea3945eb970cc32a37db7cfdfd0f22e74c.pdf
 http://docs.opencv.org/trunk/d3/db7/tutorial_hdr_imaging.html
 http://docs.opencv.org/3.0-beta/modules/photo/doc/hdr_imaging.html
+https://www.researchgate.net/profile/Hanung_Adi_Nugroho/publication/261431201_Contrast_Enhancement_of_Retinal_Vasculature_in_Digital_Fundus_Image/links/55477b400cf2e2031b36ba3f.pdf
