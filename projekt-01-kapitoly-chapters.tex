@@ -22,11 +22,21 @@ Kombinácia týchto vlastností predstavuje \emph{identitu}, ktorá jednoznačne
 
 Identitu rozlišujeme:
 \begin{itemize}
-\item fyzickú -- každá osoba vlastní len jednu fyzickú identitu, ktorá je jej nedielnou súčasťou. Fyzická identita vychádza z biologickej podstaty danej osoby.
-\item elektronickú -- záleží na jej definícii, jedna osoba môže mať viacero elektronických identít. Elektronická identita môže aj nemusí byť založená na fyzickej identite.
+\item fyzickú -- každá osoba má len jednu fyzickú identitu, ktorá je jej nedielnou súčasťou. Fyzická identita vychádza z biologickej podstaty danej osoby.
+\item elektronickú -- záleží len na jej definícii, jedna osoba tak môže mať viacero elektronických identít. Elektronická identita môže aj nemusí byť založená na fyzickej identite.
 \end{itemize}
 
-Vstupom pre biometrický systém je súhrn elektronických identít osôb, ktoré chceme rozlíšiť a identifikovať pomocou biometrického systému.
+Elektronických identít založených na fyzickej identite využíva biometrický systém. Tieto dáta sú do biometrického systému vkladané pomocou \emph{registračného modulu}, ktorý si ich ukladá do databáze.
+
+K práci s databázou je použitý \emph{verifikačný/identifikačný modul}, ktorý umožňuje načítanie elektronickej identity užívateľa. Táto môže byť následne využitá na:
+\begin{itemize}
+\item identifikáciu -- dochádza k porovnaniu vstupného údaju s každým prvkom databáze. Cieľom je nájdenie práve jednej zhody za predpokladu, že vstupná identita má svoj vzor v databáze.
+\item verifikáciu -- overenie vstupného údaju voči vybranej identite v databáze.
+\end{itemize}
+
+V oboch prípadoch je potrebné dosiahnuť čo najpresnejších výsledkov, aby nedošlo k odmietnutiu vstupu, pre ktorý je v databáze vzor.
+
+
 
 \chapter{Orgán zraku}\label{ch:kap1}
 Orgán zraku je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Strategické umiestnenie tohoto orgánu na hlave (blízko mozgu) ho robí ľahko dostupným pre použitie v biometrii.
