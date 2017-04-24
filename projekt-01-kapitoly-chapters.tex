@@ -16,14 +16,27 @@ Samotné snímanie sietnice produkuje konzistentné výsledky vďaka jej polohe 
 Táto práca sa snaží o korekciu druhého z uvedených problémov. V kapitole \ref{ch:kap0} je podaný teoretický základ biometrických metód, ako aj spôsob vyhodnocovania ich spoľahlivosti. Kapitola \ref{ch:kap1} predkladá pojmy súvisiace so zrakovým orgánom, predovšetkým sietnicou. V kapitole \ref{ch:kap2} su rozobrané jednotlivé patologické nálezy zrakového orgánu so zameraním na tie, ktoré majú najväčší dopad na snímanie sietnice. Kapitola \ref{ch:kap3} popisuje rôzne zdroje dát snímkov sietnice použité k štúdiu patologických úkazov, ich parametre a použitie pre potreby tejto práce. V kapitole \ref{ch:kap4} je pre vybrané patologické nálezy rozpracovaný teoretický podklad a spôsob akým by bolo možné dané nálezy v snímkach sietnice korigovať. Kapitola \ref{ch:kap4} ďalej prezentuje algoritmus využitý na korekciu daných nálezov vo snímkoch s ohľadom na použitie daných snímok pre účely biometrie. Kapitola \ref{ch:kap5} následne prezentuje výsledky testovania algoritmu na vybraných zdrojoch dát. Záverečná kapitola sumarizuje výsledky a predkladá ďalšie možné kroky, ktoré by mohli zlepšiť výsledky algoritmu.
 
 \chapter{Biometria obecne}\label{ch:kap0}
-\emph{Biometria} je metóda automatického rozpoznávania ľudí na základe anatomických (odtlačky prstov, tvár, dúhovka, sietnica,\dots) alebo behaviorálnych (hlas/reč, gestikulácia, chôdza, podpis,\dots) vlastností jedinečných pre každého človeka.
+\section{Biometria}
+Pojem \emph{biometria} vychádza zo starogréckych slov \emph{bios} -- život a \emph{metron} -- meranie. Obecne je teda možné povedať, že biometria je oborom, ktorý sa zaoberá meraním vlastností živých bytostí.
 
-Kombinácia týchto vlastností predstavuje \emph{identitu}, ktorá jednoznačne určuje danú osobu. Osoba môže byť identická len sama so sebou\cite{bio}.
+Z historického pohľadu začala biometria ako štatistický obor (dnes bioštatistika), v ktorom sa štúdiom meraných vlastností prehlbovali vedomosti o biológii.
+
+V informatike však pod pojmom biometria rozumieme metódu automatizovaného rozpoznávania ľudí na základe ich anatomických a behaviorálnych vlastností\cite{bio}.
+Z nameraných štatistických dát sú teda vyberané len tie, ktoré sa štatisticky odchyľujú u každého človeka a zaručia tak
+
+\section{Rozpoznávanie}
+Vzhľadom na to, že ako jeden živočíšny druh zdieľame značnú časť genetickej informácie, tak väčšina vlastností je veľmi podobná od človeka k človeku. Aby bolo možné dosiahnuť jednoznačného rozpoznania, vyberajú sa len také vlastnosti, ktoré sú u každého jedinečné, typicky komplexné štruktúry ako napríklad:
+\begin{itemize}
+\item anatomické vlastnosti -- odtlačky prstov, geomteria tváre, dúhovka, vlásočnicová sieť sietnice,\dots
+\item behaviorálne vlastnosti -- hlas/reč, gestikulácia, chôdza, podpis,\dots
+\end{itemize}
+
+Tieto vlastnosti sú reprezentácie identity. \emph{Identita} je kombináciou všetkých našich vlastností a jednoznačne určuje našu osobu. Každá osoba je teda vždy identická len sama so sebou\cite{bio}.
 
 Identitu rozlišujeme:
 \begin{itemize}
 \item fyzickú -- každá osoba má len jednu fyzickú identitu, ktorá je jej nedielnou súčasťou. Fyzická identita vychádza z biologickej podstaty danej osoby.
-\item elektronickú -- záleží len na jej definícii, jedna osoba tak môže mať viacero elektronických identít. Elektronická identita môže aj nemusí byť založená na fyzickej identite.
+\item elektronickú -- záleží len na jej definícii, jedna osoba tak môže mať viacero elektronických identít. Elektronická identita môže aj nemusí byť založená na fyzickej identite (napr. účet na sociálnej sieti, prístupová karta do práce, \dots).
 \end{itemize}
 
 Elektronických identít založených na fyzickej identite využíva biometrický systém. Tieto dáta sú do biometrického systému vkladané pomocou \emph{registračného modulu}, ktorý si ich ukladá do databáze.
