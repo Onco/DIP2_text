@@ -146,27 +146,38 @@ V praxi je teda bohužial nemožné dosiahnuť nulové $FAR$ i $FRR$ zároveň, 
 
 Navyše priebehy $FAR$ a $FRR$ nie sú v praxi tak plynulé ako je naznačené na obrázku \ref{fig:prah}. Vyhodnotenie výkonnosti daného biometrického systému teda nie je možné len na základe minimálnych či maximálnych hodnôt $FRR$ a $FAR$, ale je potrebná znalosť priebehu oboch veličín. Ich kombináciou dosiahneme vhodnú charakteristiku a zjednodušíme porovnávanie.
 
-Vyjadrenie vzťahu $FRR$ a $FAR$ sa prevádza pomocou $ROC$ krivky (Reciver Operating Characteristic or Curve), viď obrázok \ref{fig:roc}. Charakteristiky $FRR$ a $FAR$ uvedené v predošlých kapitolách sú zanesené do grafu a potovnané voči sebe.
+Vyjadrenie vzťahu $FRR$ a $FAR$ sa prevádza pomocou $DET$ krivky (Detection Error Trade-off), viď obrázok \ref{fig:det}. Charakteristiky $FRR$ a $FAR$ uvedené v predošlých kapitolách sú zanesené do grafu a porovnané voči sebe.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm]{img/det.png}
+	\caption{$DET$ krivka\cite{bio}.}
+	\label{fig:det}
+\end{figure}
+
+Častejšie sa však stretneme s podobnou krivkou porovnávajúcou charakteristiky $FAR$ a $1 - FRR$, zvanou $ROC$ (Receiver Operating Characteristic alebo Curve), viď obrázok \ref{fig:roc}. Miera $1 - FRR$ vyjadruje mieru prijatia korektných (autorizovaných) vstupov a môžeme ju tiež nazvať $TAR$ (True Acceptance Rate).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=13cm]{img/roc.png}
-	\caption{ROC krivka\cite{bio3}.}
+	\caption{$ROC$ krivka\cite{bio}.}
 	\label{fig:roc}
 \end{figure}
 
-Keďže krivka je typicky veľmi blízko osí súradného systému, pre názorné porovnanie viacerých systémov sa používa logaritmické zobrazenie, ako je znázornené na obrázku \ref{fig:roc}. Ideálny systém tu leží v bode $FRR = FAR = 0$, cieľom je priblížiť sa k tomuto bodu, ale tak, aby účel systému nebol kompromitovaný. To znamená, že ak je účelom identifikácia, snaha bude pravdepodobne udržať krivku čo najbližšie osi x, t.j. $FAR$, zatiaľ čo u verifikácie je pravdepodobne snaha udržať krivku čo najbližšie osi y, t.j. $FRR$.
+Keďže obe krivky sú typicky veľmi blízko osí súradného systému, pre názorné porovnanie viacerých systémov sa používa logaritmické zobrazenie, ako je znázornené na obrázkoch. 
 
-Závislosť $FAR$ a $FRR$ vyjadrená $ROC$ krivkou vyjadruje schopnosti biometrického systému bez skreslenia voľbou konkrétneho prahu. Krivka $ROC$ je teda objektívnym prostriedkom pre porovnanie výkonnosti rôznych biometrických systémov.
+V prípade $ROC$ leží ideálny systém v bode $TAR = 1$ a $FAR = 0$, cieľom je priblížiť sa k tomuto bodu, ale tak, aby účel systému nebol kompromitovaný. To znamená, že ak je účelom identifikácia, snaha bude pravdepodobne udržať krivku čo najbližšie osi x, t.j. $FAR$, zatiaľ čo u verifikácie je pravdepodobne snaha udržať krivku čo najbližšie osi y, t.j. $TAR$.
+
+Závislosť $FAR$ a $TAR$ vyjadrená $ROC$ krivkou vyjadruje schopnosti biometrického systému bez skreslenia voľbou konkrétneho prahu. Krivka $ROC$ je teda objektívnym prostriedkom pre porovnanie výkonnosti rôznych biometrických systémov.
 
 \chapter{Orgán zraku}\label{ch:kap1}
-Orgán zraku je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Strategické umiestnenie tohoto orgánu na hlave (blízko mozgu) ho robí ľahko dostupným pre použitie v biometrii.
+Orgán zraku je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Zrakom vnímame až 90\% informácií z okolitého prostredia, a preto je tento orgán Strategické umiestnenie tohoto orgánu na hlave (blízko mozgu) ho robí ľahko dostupným pre použitie v biometrii.
 
 Táto kapitola rozoberá základné poznatky týkajúce sa orgánu zraku, rozoberá jeho optické vlastnosti a zavádza pojmy, ktoré sú využívané v nasledujúcich kapitolách.
 
 \section{Zloženie oka}\label{sec:oko}
-Oko, očná bulva, má takmer sférický tvar. Vďaka tomuto tvaru je jeho pohyb v očnej jamke rýchly a zabezpečuje zameranie sa na objekt záujmu v ráde milisekúnd\cite{}.
-Zloženie oka umožňuje jednoduchý priestup svetla, obmedzenie množstva svetla v prípade zvýšeného jasu a jeho zaostrenie na sietnicu.
+Oko, očná bulva, má takmer sférický tvar. Vďaka tomuto tvaru je jeho pohyb v očnej jamke rýchly a zabezpečuje zameranie sa na objekt záujmu v zlomku sekundy \cite{bio4}.
+Zloženie oka umožňuje jednoduchý priestup svetla s minimálnymi , obmedzenie množstva svetla v prípade zvýšeného jasu a jeho zaostrenie na sietnicu.
 
 \begin{figure}[h]
   \centering
