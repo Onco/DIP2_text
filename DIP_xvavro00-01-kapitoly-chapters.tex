@@ -24,7 +24,7 @@ Z historického pohľadu bola biometria štatistickým oborom, dnes častejšie 
 Dnes však pod pojmom biometria rozumieme obor informatiky, ktorý je v \cite{bio} zadefinovaný ako metóda automatizovaného rozpoznávania ľudí na základe ich anatomických a behaviorálnych vlastností. Biometria teda stavia na bioštatistike, kde sa z nameraných štatistických dát (výsledok merania vlastností) vyberajú práve také, ktoré umožnia spoľahlivé rozpoznávanie.
 
 \section{Rozpoznávanie}
-Pri výbere vhodných vlastností potrebujeme tieto určitým spôsobom zaradiť, aby bolo možné priamo určiť, či ich bude možné uplatniť pri rozpoznávaní. Z tohoto dôvodu využívame niekoľko kritérií\cite{bio}\cite{bio2}:
+Pri výbere vhodných vlastností potrebujeme tieto určitým spôsobom zaradiť, aby bolo možné priamo určiť, či ich bude možné uplatniť pri rozpoznávaní. Z tohoto dôvodu využívame niekoľko kritérií\cite{bio}:
 \begin{itemize}
 \item univerzálnosť -- vlastnosť je prítomná u všetkých ľudí.
 \item jedinečnosť -- vlastnosť je u jednotlivých osôb unikátna a umožňuje ich jednoznačne rozlíšiť.
@@ -135,7 +135,7 @@ Táto optimalizácia je realizovateľná vďaka možnosti nastavenia \emph{prahu
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=13cm]{img/prah.png}
+	\includegraphics[width=11cm]{img/prah.png}
 	\caption{Nastavenie prahu citlivosti\cite{bio3}.}
 	\label{fig:prah}
 \end{figure}
@@ -146,74 +146,95 @@ V praxi je teda bohužial nemožné dosiahnuť nulové $FAR$ i $FRR$ zároveň, 
 
 Navyše priebehy $FAR$ a $FRR$ nie sú v praxi tak plynulé ako je naznačené na obrázku \ref{fig:prah}. Vyhodnotenie výkonnosti daného biometrického systému teda nie je možné len na základe minimálnych či maximálnych hodnôt $FRR$ a $FAR$, ale je potrebná znalosť priebehu oboch veličín. Ich kombináciou dosiahneme vhodnú charakteristiku a zjednodušíme porovnávanie.
 
-Vyjadrenie vzťahu $FRR$ a $FAR$ sa prevádza pomocou $DET$ krivky (Detection Error Trade-off), viď obrázok \ref{fig:det}. Charakteristiky $FRR$ a $FAR$ uvedené v predošlých kapitolách sú zanesené do grafu a porovnané voči sebe.
+Vyjadrenie vzťahu $FRR$ a $FAR$ sa prevádza pomocou $DET$ krivky (Detection Error Trade-off), viď obrázok \ref{fig:det}. Charakteristiky $FRR$ a $FAR$ uvedené v predošlých kapitolách sú zanesené do grafu pri rôznych nastaveniach prahu systémua porovnané voči sebe.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=13cm]{img/det.png}
+	\includegraphics[width=11cm]{img/det.png}
 	\caption{$DET$ krivka\cite{bio}.}
 	\label{fig:det}
 \end{figure}
 
-Častejšie sa však stretneme s podobnou krivkou porovnávajúcou charakteristiky $FAR$ a $1 - FRR$, zvanou $ROC$ (Receiver Operating Characteristic alebo Curve), viď obrázok \ref{fig:roc}. Miera $1 - FRR$ vyjadruje mieru prijatia korektných (autorizovaných) vstupov a môžeme ju tiež nazvať $TAR$ (True Acceptance Rate).
+V prípade $DET$ leží ideálny systém v bode $FRR = 0$ a $FAR = 0$, cieľom je priblížiť sa k tomuto bodu, ale tak, aby účel systému nebol kompromitovaný. To znamená, že ak je účelom identifikácia, snaha bude pravdepodobne udržať krivku čo najbližšie osi x, t.j. $FAR$, zatiaľ čo u verifikácie je pravdepodobne snaha udržať krivku čo najbližšie osi y, t.j. $FRR$.
+Na obrázku \ref{fig:det} je zanesené $EER$, ktoré predstavuje pomyslenú hranicu medzi týmito dvoma módmi biometrického systému.
 
-\begin{figure}[h]
+Častejšie sa však stretneme s podobnou krivkou porovnávajúcou charakteristiky $FAR$ a $1 - FRR$, zvanou $ROC$ (Receiver Operating Characteristic alebo Curve), viď obrázok \ref{fig:roc}. Miera $1 - FRR$ vyjadruje mieru prijatia korektných (autorizovaných) vstupov a môžeme ju tiež pre zjednodušenie nazvať $TAR$ (True-Acceptance Rate).
+
+\begin{figure}[!hb]
 	\centering
-	\includegraphics[width=13cm]{img/roc.png}
+	\includegraphics[width=11cm]{img/roc.png}
 	\caption{$ROC$ krivka\cite{bio}.}
 	\label{fig:roc}
 \end{figure}
 
-Keďže obe krivky sú typicky veľmi blízko osí súradného systému, pre názorné porovnanie viacerých systémov sa používa logaritmické zobrazenie, ako je znázornené na obrázkoch. 
+Keďže obe krivky sú často veľmi blízko osí súradného systému, pre názorné porovnanie viacerých systémov sa používa logaritmické zobrazenie, ako je znázornené na obrázkoch. 
 
-V prípade $ROC$ leží ideálny systém v bode $TAR = 1$ a $FAR = 0$, cieľom je priblížiť sa k tomuto bodu, ale tak, aby účel systému nebol kompromitovaný. To znamená, že ak je účelom identifikácia, snaha bude pravdepodobne udržať krivku čo najbližšie osi x, t.j. $FAR$, zatiaľ čo u verifikácie je pravdepodobne snaha udržať krivku čo najbližšie osi y, t.j. $TAR$.
+V prípade $ROC$ leží ideálny systém v bode $TAR = 1$ a $FAR = 0$ a opäť je cieľom je priblížiť sa k tomuto bodu bez kompromitovania účelu systému. To znamená, že ak je účelom identifikácia, snaha bude pravdepodobne udržať krivku čo najbližšie osi x, t.j. $FAR$, zatiaľ čo u verifikácie je pravdepodobne snaha udržať krivku čo najbližšie osi y, t.j. $TAR$.
+Na obrázku \ref{fig:roc} je pre porovnanie zobrazený i náhodný model, ktorý predstavuje biometrický systém, ktorý by rozhodoval o výsledku čisto náhodne a vôbec by nebral v úvahu vstup od užívateľa.
 
 Závislosť $FAR$ a $TAR$ vyjadrená $ROC$ krivkou vyjadruje schopnosti biometrického systému bez skreslenia voľbou konkrétneho prahu. Krivka $ROC$ je teda objektívnym prostriedkom pre porovnanie výkonnosti rôznych biometrických systémov.
 
 \chapter{Orgán zraku}\label{ch:kap1}
-Orgán zraku je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Zrakom vnímame až 90\% informácií z okolitého prostredia, a preto je tento orgán Strategické umiestnenie tohoto orgánu na hlave (blízko mozgu) ho robí ľahko dostupným pre použitie v biometrii.
+Oko je primárny párový senzorický orgán ľudského tela, vďaka ktorému sa človek dokáže jednoducho orientovať v okolitom priestore. Skladá za z dvoch očných gulí umiestnených vo výklenkoch lebky, v kostenných orbitách, ktoré citlivú štruktúru oka chránia pred poškodením \cite{zloz_oka}. Zrakom vnímame až 90\% informácií z okolitého prostredia, čo robí tento orgán zásadným pre naše vnímanie \cite{zmysly}. Strategické umiestnenie tohoto orgánu na hlave ho robí ľahko dostupným pre použitie v biometrii.
 
 Táto kapitola rozoberá základné poznatky týkajúce sa orgánu zraku, rozoberá jeho optické vlastnosti a zavádza pojmy, ktoré sú využívané v nasledujúcich kapitolách.
 
 \section{Zloženie oka}\label{sec:oko}
-Oko, očná bulva, má takmer sférický tvar. Vďaka tomuto tvaru je jeho pohyb v očnej jamke rýchly a zabezpečuje zameranie sa na objekt záujmu v zlomku sekundy \cite{bio4}.
-Zloženie oka umožňuje jednoduchý priestup svetla s minimálnymi , obmedzenie množstva svetla v prípade zvýšeného jasu a jeho zaostrenie na sietnicu.
+Oko, očná bulva, má takmer sférický tvar. Vďaka tomuto tvaru je pohyb očnej gule v očnej jamke rýchly a zabezpečuje zameranie sa na objekt záujmu v zlomku sekundy \cite{vlast_oka}. Zloženie oka umožňuje ľahký priechod svetla okom, reguláciu množstva svetla a jeho zaostrenie na povrch sietnice, kde dochádza k jeho zaznamenaniu a príprave pre ďalšie spracovanie v mozgu.
+
+Obrázok \ref{fig:oko} približuje zloženie ľudského oka.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=11cm]{img/Eyesection.png}
-  \caption{Štruktúra ľudského oka\cite{retina}}
-  \label{fig:retina}
+  \caption{Štruktúra ľudského oka \cite{zloz_oka}.}
+  \label{fig:oko}
 \end{figure}
 
-Svetlo pri priechode okom prechádza nasledujúcimi prvkami\cite{zloz_oka}:
+Oko sa skladá z troch rôznych vrstiev tkaniva \cite{zloz_oka}:
 \begin{itemize}
-\item \textbf{rohovka} (cornea) -- transparentná vrstva v prednej časti oka chrániaca miesto vstupu svetla do oka. Je vysoko odolná a má značné regeneračné vlastnosti.
-\item \textbf{predná a zadná očná komora} -- obsahujú číru tekutinu, ktorá vypĺňa priestor za rohovkou až k dúhovke a šošovke (v mieste zornice). Udržujú stály očný tlak, zásobujú rohovku, šošovku a okolité tkanivá živinami\cite{zmysly}.
-\item \textbf{šošovka} -- elastický útvar bikonvexného tvaru. Je zavesená na tenkých vláknach a napínaná ciliárnym svalom, ktorý tak upravuje optickú mohutnosť šošovky a umožňuje zaostrovanie, akomodáciu.
-\item \textbf{sklovec} -- číry gél vypĺňajúci dutinu oka za šošovkou.
-\item \textbf{sietnica} (retina) -- viacvrstvá štruktúra obsahujúca svetlocitlivé bunky. Elektrický impulz generovaný svetlocitlivými bunkami je prenášaný sieťou komplexných nervových dráh až do mozgu.
+\item \emph{tunica fibrosa} -- vonkajšia vrstva pevného kolagénového väziva, ktoré na prednej strane očnej gule tvorí transparentnú \emph{rohovku} a na zadnej strane \emph{skléru}, očné bielko. Táto vrstva vďaka svojej pevnosti a pružnosti udržuje tvar očnej bulvy a chráni ju pred poškodením, je obalom oka. Tunica fibrosa neobsahuje takmer žiadne krvné riečište, je zásobovaná živinami z tunica vasculosa (v prípade skléry) či z vnútroočných tekutín (v prípade rohovky).
+\item \emph{tunica vasculosa} (uvea) -- stredná vrsta, živnatka, ktorá sa skladá z troch častí: cievnatky, riasnatého telieska a dúhovky. Prevažnú časť tvorí \emph{cievovka} (choroid), zložená zo siete ciev a vlásočníc, ktoré rozvádzajú živiny a kyslík tkanivám oka. Obsah melanocytov v cievovke zapríčiňuje jej typickú červenú farbu. Cievovka pozvoľna prechádza do \emph{riasnatého telieska}, ktoré ukotvuje a mení tvar šošovky, a do \emph{dúhovky}, ktorá má v svojom centre kruhový otvor vytvárajúci vstup do oka, zvaný \emph{zrenica}.
+\item \emph{tunica nervosa} -- vnútorná vrstva obsahujúca niekoľko vrstiev svetlocitlivých, nervových a podporných buniek a tkanív. Tunica nervosa tvorí \emph{sietnicu}, jej jednotlivé vrstvy sú bližšie popísané v neskoršej časti tejto kapitoly.
 \end{itemize}
 
-Každý z týchto prvkov má vlastnosti, ktoré sa podieľajú na správnom prenose svetla k sietnici. 
+Táto práca sa ďaľej bližšie zamerá v sekcii \ref{sec:retina} na tunica nervosa, teda na sietnicu, ktorá obsahuje prvky využívané v biometrii. Bližšie popísané budú tiež kľúčové časti oka, ktorými prechádza svetlo pred dopadom na sietnicu.
 
+\section{Priechod svetla okom}
+Svetlo vstupujúce do oka je vedené sériou optických prvkov. Tieto prvky sú koncipované tak, aby prepúšťali svetlo bez významného ovplyvnenia a zameriavali ho na svetlocitlivú vstvu sietnice.
 
-- popis ako je svetlo ovplyvnene prvkami oka
+Svetlo pri priechode okom prechádza postupne nasledujúcimi prvkami \cite{zloz_oka}:
+\begin{itemize}
+\item rohovka (cornea) -- transparentná, 0,5~mm hrubá vrstva v prednej časti oka chrániaca miesto vstupu svetla do oka. Je vysoko odolná a má značné regeneračné vlastnosti. Jej index lomu (1,377) je väčší ako index lomu vzduchu (cca 1,0) vďaka čomu láme svetlo smerom do oka. Podieľa sa tak na refrakčnej schopnosti oka až z \sfrac{2}{3}.
+\item predná očná komora -- obsahuje číru tekutinu, ktorá vypĺňa priestor za rohovkou až k dúhovke a šošovke (v mieste zrenice). Udržuje stály očný tlak, zásobuje rohovku, šošovku a okolité tkanivá živinami. Hrúbka komory dosahuje až 3,04~mm a má približne rovnaký index lomu (1,336) ako rohovka, takže láme svetlo z rohovky len nepatrne.
+\item zrenica (pupila) -- ako otvor v dúhovke nepredstavuje žiadny fyzický prvok oka, avšak keďže dúhovka plní mnoho iných funkcií, typicky sa popisuje zvlášť. Zrenica ovplyvňuje množstvo prechádzajúceho svetla do oka a hĺbku ostrosti. Jej rozmer sa mení v rozsahu 1,5--8~mm, podľa aktuálneho rozšírenia, čo spôsobuje zmenu jasu od $10^2 - 10^4 cd.m^{-2}$. 
+\item šošovka -- elastický útvar bikonvexného tvaru. Je tvorená veľkým počtom vrstiev, ktoré vytvárajú gradientnú šošovku. Je zavesená na tenkých vláknach riasnatého telieska a napínaná ciliárnym svalom, ktorý tak upravuje tvar a hrúbku šošovky a tým aj jej optickú mohutnosť, čo umožňuje zaostrovanie (akomodáciu). V pokojovom stave má približne 3,6~mm. Index lomu šošovky je mierne väčší (cca 1,41) ako u komorovej tekutiny, čo umožňuje správnu funkciu šošovky, ale šošovka sa tak podieľa len z \sfrac{1}{3} na refrakčnej schopnosti oka.
+\item sklovec -- číry gél vypĺňajúci dutinu oka za šošovkou. Udržuje tvar oka a umožňuje optimálne rozptýlenie svetla po povrchu sietnice. Jeho index lomu je približne rovnaký ako u prednej očnej komory.
+\item sietnica (retina) -- viacvrstvá štruktúra obsahujúca svetlocitlivé bunky. Elektrický impulz generovaný svetlocitlivými bunkami je prenášaný sieťou komplexných nervových dráh až do mozgu.
+\end{itemize}
+
+Vyššie uvedené optické vlastnosti sú bližšie popísané v \cite{vlast_oka}.
+
+Jednotlivé prvky tiež značne ovplyvňujú frekvenčné spektrum vstupujúceho svetla. Na obrázku \ref{fig:pohlc} môžeme pozorovať, že ultrafialové vlnové dĺžky svetla kratšie ako cca 400~nm sú pohlcované šošovkou oka, zatiaľ čo vlnové dĺžky infračerveného svetla dlhšie ako cca 1300~nm sú pohlcované komorovou tekutinou (pred šošovkou) a sklovcovým gélom (za šošovkou) \cite{vlast_oka}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=11cm]{img/pohlcovanie.png}
+  \caption{Pohlcovanie svetla pri priechode okom \cite{vlast_oka}.}
+  \label{fig:pohlc}
+\end{figure}
+
+- popis ako je svetlo ovplyvnene prvkami oka \cite{pato}
 - popis ako sa obraz dostava na sietnicu
+- popis priepustnosti svetla skrz oko a vlastnosti svetla ktore zachytava sietnica
+
+\section{Zloženie sietnice}\label{sec:retina}
 
 - popis kde je sietnica a na co sluzi \cite{vlast_oka}
-- potrebujes sa dostat k popisu klucovych prvkov sietnice
-
-- 
-
-- jednotlive casti oka a ich nazov podla odbornej literatury
-- popis priepustnosti svetla skrz oko a vlastnosti svetla ktore zachytava sietnica
-- odkaz na choroby ktore niesu spojene priamo so sietnicou?
-
-\section{Sietnica}\label{sec:sietnica}
 - skladba sietnice, rieciste, svetlocitlive bunky, popis jednotlivych prvkov na sietnici
 - reakcia svetlocitlivych buniek na svetlo, ich rozlozenie po sietnici
-- 
+- potrebujes sa dostat k popisu klucovych prvkov sietnice
+- odkaz na choroby ktore niesu spojene priamo so sietnicou?
 
 \section{Biometria sietnice}\label{sec:bioret}
 
@@ -227,6 +248,7 @@ TBD\cite{bio}
 - popis jednotlive databaze a ich parametry - vyuzi existujuce prace a zosumarizuj data!!!
 
 \chapter{Detekcia a korekcia nálezov}\label{ch:kap4}
+TBD\cite{terc}
 
 \chapter{Implementácia algoritmu}
 

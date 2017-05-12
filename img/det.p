@@ -7,8 +7,8 @@ set output 'det.png'
 
 set key top left
 
-set xlabel "Miera Chybového Prijatia\n(FAR) [%]" font "Verdana,12"
-set ylabel "Miera Chybového Odmietnutia\n(FRR) [%]" font "Verdana,12"
+set xlabel "Miera Chybového Prijatia (FAR) [%]" font "Verdana,12"
+set ylabel "Miera Chybového Odmietnutia (FRR) [%]" font "Verdana,12"
 
 set format x "10^%L"
 set format y "10^%L"

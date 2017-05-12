@@ -1083,12 +1083,14 @@ FUNCTION {article}
     { format.journal.pages }
     { format.journal.eid }
   if$
-  format.issn output
+  write.url
+  new.sentence
   format.doi output
+  new.sentence
+  format.issn output
   format.note output
   format.eprint output
   fin.entry
-  write.url
 }
 FUNCTION {book}
 { output.bibitem

@@ -2,6 +2,7 @@
 %% -------------------------------------------------------------------------- %%
 %% *** Modifed by Ondrej Vavro, xvavro00@stud.fit.vutbr.cz                *** %%
 %% *** Wordings in slovak are now used within the cited material.         *** %%
+%% *** Several changes to the way certain documents are typed.            *** %%
 %% -------------------------------------------------------------------------- %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -241,7 +242,7 @@ FUNCTION {add.blank}
 FUNCTION {add.colon}
 { duplicate$ empty$
     'skip$
-    { add.blank ":" * add.blank }
+    { ":" * add.blank }
   if$
 }
 
@@ -341,16 +342,16 @@ FUNCTION {bbl.edby}
 { "editácia" }
 
 FUNCTION {bbl.edition}
-{ "vyd." }
+{ "Vyd." }
 
 FUNCTION {bbl.volume}
-{ "Roč." }
+{ "roč." }
 
 FUNCTION {bbl.of}
 { "" }
 
 FUNCTION {bbl.number}
-{ "číslo" }
+{ "" }
 
 FUNCTION {bbl.nr}
 { "č." }
@@ -1042,7 +1043,7 @@ FUNCTION {format.subtitlenorm}
   subtitle "subtitlenorm" bibinfo.check
   duplicate$ empty$ 'skip$
     {   
-      " : " add.blank swap$ *
+      ": " add.blank swap$ *
     }
   if$
 }
@@ -1118,7 +1119,8 @@ FUNCTION {format.edition}
         { "t" }
       if$ change.case$
       "edition" bibinfo.check
-      " " * bbl.edition *
+      "." *
+      bbl.edition " " * swap$ *
     }
   if$
 }
@@ -1164,7 +1166,7 @@ FUNCTION {format.journal.pages}
     { swap$ duplicate$ empty$
         { pop$ pop$ format.pages }
         {
-          ": " *
+          ", " *
           swap$
           n.dashify
           pages multi.page.check
@@ -1404,7 +1406,7 @@ FUNCTION {format.organization.address}
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
-  add.colon
+  new.sentence
   format.title "title" output.check
   new.sentence
   crossref missing$
@@ -1413,8 +1415,9 @@ FUNCTION {article}
       "journal" bibinfo.check
       emphasize
       "journal" output.check
-      format.vol.num.pages output
+      new.sentence
       format.date "year" output.check
+      format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
     }
@@ -1423,8 +1426,10 @@ FUNCTION {article}
     { format.journal.pages }
     { format.journal.eid }
   if$
-  format.issn output
+  new.sentence
   format.doi output
+  new.sentence
+  format.issn output
   format.note output
   format.eprint output
   fin.entry
@@ -1451,6 +1456,7 @@ FUNCTION {book}                                                    %% MONOGRAFIE
   crossref missing$
     { format.bvolume output
       format.number.series output
+      new.sentence
       format.publisher.address output
     }
     {
@@ -1702,8 +1708,9 @@ FUNCTION {mediaproceedings}                               %% ELEKTRONICKÝ SERI�
   new.sentence
   format.url output
   new.sentence
-  format.issn output
   format.doi output
+  new.sentence
+  format.issn output
   new.sentence
   fin.entry
 }
@@ -1735,8 +1742,9 @@ FUNCTION {inmediaproceedings}                             %% ELEKTRONICKÝ ČLÁ
   new.sentence
   format.url output
   new.sentence
-  format.issn output
   format.doi output
+  new.sentence
+  format.issn output
   new.sentence
   fin.entry
 }
@@ -1867,9 +1875,10 @@ FUNCTION {techreport}
   format.btitle
   "title" output.check
   new.sentence
+  address "address" bibinfo.check output
+  add.colon
   format.tr.number output.nonnull
   institution "institution" bibinfo.warn output
-  address "address" bibinfo.check output
   format.date "year" output.check
   format.doi output
   format.note output
